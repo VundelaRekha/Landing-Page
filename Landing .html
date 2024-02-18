@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="Landing.css" />
+    <title>Landing Page | Advanture Parallax</title>
+  </head>
+  <body>
+    <div class="parallax__container">
+      <img src="Lan1.jpeg" alt="parallax" />
+      <img id="Lan2" src="Lan2.jpeg" alt="parallax" />
+      <h1 id="title">Adventure</h1>
+      <img id="Lan3" src="Lan3.jpeg" alt="parallax" />
+    </div>
+    <section class="about">
+      <div class="image__gallary">
+        <div class="image__card" id="image__card-1">
+          <img src="Lan4.jpeg" alt="Lan" />
+        </div>
+        <div class="image__card" id="image__card-2">
+          <img src="Lan5.jpeg" alt="Lan" />
+        </div>
+        <div class="image__card" id="image__card-3">
+          <img src="Lan6.jpeg" alt="Lan" />
+        </div>
+        <div class="image__card" id="image__card-4">
+          <img src="Lan7.jpeg" alt="grid" />
+        </div>
+      </div>
+      <div class="details">
+        Adventure is an exciting experience, usually risky undertaking hazardous 
+        action of uncertainoutcomes.It gives us experience, happiness, exploring 
+        of places, excitment, adventures travelling, trips. 
+      </div>
+      <div class="footer__btn">
+        <button class="learn__more">Learn More</button>
+      </div>
+    </section>
+
+    <script>
+      var title = document.getElementById("title");
+      var Lan2 = document.getElementById("Lan2");
+      var Lan3 = document.getElementById("Lan3");
+
+      var image_card_1 = document.getElementById("image__card-1");
+      var image_card_2 = document.getElementById("image__card-2");
+      var image_card_3 = document.getElementById("image__card-3");
+      var image_card_4 = document.getElementById("image__card-4");
+
+      document.addEventListener("scroll", (event) => {
+        var positionY = window.scrollY;
+
+        title.style.fontSize = `${100 + positionY * 0.5}px`;
+
+        Lan2.style.top = `-${positionY * 0.5}px`;
+        Lan3.style.top = `-${positionY}px`;
+        Lan3.style.scale = 1 + positionY * 0.001;
+
+        image_card_1.style.transform = `translateY(${
+          positionY * -0.5 + 400
+        }px)`;
+
+        image_card_2.style.transform = `translateY(${positionY * 0.1 + -50}px)`;
+
+        image_card_3.style.transform = `translateY(${
+          positionY * -0.1 + 100
+        }px)`;
+
+        image_card_4.style.transform = `translateY(${
+          positionY * 0.2 + -125
+        }px)`;
+
+        var _newOpacity = positionY * 0.001;
+        if (_newOpacity >= 0 && _newOpacity <= 1) {
+          image_card_1.style.opacity = _newOpacity;
+          image_card_2.style.opacity = _newOpacity;
+          image_card_3.style.opacity = _newOpacity;
+          image_card_4.style.opacity = _newOpacity;
+        }
+      });
+    </script>
+  </body>
+</html>
